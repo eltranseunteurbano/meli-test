@@ -1,0 +1,37 @@
+$element-size: 2.5rem;
+$element-fontsize: 1.125rem;
+
+.search {
+  inline-size: 100%;
+  block-size: $element-size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+
+  &-input {
+    flex: 1;
+    border: none;
+    color: $darker-grey-color;
+    outline: 0;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    font-size: $element-fontsize;
+    block-size: 100%;
+
+    &::placeholder {
+      color: $regular-grey-color;
+    }
+  }
+
+  &-btn {
+    background-color: $light-grey-color;
+    border: none;
+    cursor: pointer;
+    font-size: $element-fontsize;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    block-size: $element-size;
+    inline-size: $element-size;
+  }
+}

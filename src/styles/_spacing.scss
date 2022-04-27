@@ -1,0 +1,44 @@
+// Spacing variables
+$max: 10;
+$offset: 1;
+$unit: 'px';
+
+// Spacing utilities
+@mixin simple-spacing($className, $styleName) {
+  $i: 0;
+  @while $i <= $max {
+    .#{$className + '-' + $i} { 
+      #{$styleName}: #{$i * 8 + $unit};
+    }
+    $i: $i + $offset;
+  }
+}
+
+@mixin complex-spacing($className, $side, $styleName) {
+  $i: 0;
+  @while $i <= $max {
+    .#{$className + $side + '-' + $i} { 
+      #{$styleName}-start: #{$i * 8 + $unit};
+      #{$styleName}-end: #{$i * 8 + $unit};
+    }
+
+    $i: $i + $offset;
+  }
+}
+
+@include simple-spacing('p', 'padding');
+@include simple-spacing('pl', 'padding-inline-start');
+@include simple-spacing('pr', 'padding-inline-end');
+@include simple-spacing('pt', 'padding-block-start');
+@include simple-spacing('pb', 'padding-block-end');
+
+@include simple-spacing('m', 'margin');
+@include simple-spacing('ml', 'margin-inline-start');
+@include simple-spacing('mr', 'margin-inline-end');
+@include simple-spacing('mt', 'margin-block-start');
+@include simple-spacing('mb', 'margin-block-end');
+
+@include complex-spacing('p', 'x', 'padding-inline');
+@include complex-spacing('p', 'y', 'padding-block');
+@include complex-spacing('m', 'x', 'margin-inline');
+@include complex-spacing('m', 'y', 'margin-block');
