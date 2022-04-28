@@ -47,8 +47,7 @@ const Product: React.FC = () => {
           cn(
             'product-image',
             isLoading && 'product-image-skeleton skeleton-animation',
-          )
-}
+          )}
         >
           <img
             src={item.picture.url}
@@ -59,8 +58,10 @@ const Product: React.FC = () => {
         </div>
         <article className="product-info">
           <p className={
-            cn('product-info-soldUnits', isLoading && 'product-info-soldUnits-skeleton skeleton-animation')
-}
+            cn(
+              'product-info-soldUnits',
+              isLoading && 'product-info-soldUnits-skeleton skeleton-animation',
+            )}
           >
             <span className="product-info-condition">
               {item.condition}
@@ -68,12 +69,18 @@ const Product: React.FC = () => {
             {item.sold_quantity > 0 && `- ${item.sold_quantity} vendido${Pluralize(item.sold_quantity)}`}
           </p>
           <h1 className={
-            cn('product-info-title', isLoading && 'product-info-title-skeleton skeleton-animation')
-}
+            cn(
+              'product-info-title',
+              isLoading && 'product-info-title-skeleton skeleton-animation',
+            )}
           >
             {item.title}
           </h1>
-          <p className={cn('product-info-value money', isLoading && 'product-info-value-skeleton skeleton-animation')}>
+          <p className={cn(
+            'product-info-value money',
+            isLoading && 'product-info-value-skeleton skeleton-animation',
+          )}
+          >
             {ThousandSeparator(item.price.amount)}
             <sup>{item.price.decimals}</sup>
           </p>
@@ -84,8 +91,7 @@ const Product: React.FC = () => {
             cn(
               'product-description-title',
               isLoading && 'product-description-title-skeleton skeleton-animation',
-            )
-}
+            )}
           >
             Descripción del producto
           </h2>
@@ -93,8 +99,7 @@ const Product: React.FC = () => {
             cn(
               'product-description-text',
               isLoading && 'product-description-text-skeleton skeleton-animation',
-            )
-}
+            )}
           >
             {item.description}
           </p>
