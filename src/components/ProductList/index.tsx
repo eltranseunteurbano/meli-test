@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import ProductItem from "../../types/ProductItem";
 import ProductItemCard from "../ProductItemCard";
+import WhiteCard from '../WhiteCard';
 
 interface ProductListProps {
   productList: ProductItem[];
@@ -11,14 +12,14 @@ const ProductList: React.FC<ProductListProps> = (props) => {
   const { productList, className } = props;
 
   return (
-    <article className={cn(className, 'ProductList')}>
+    <WhiteCard className={cn(className, 'ProductList')}>
       {productList.map((item, index) => <ProductItemCard
         key={item.id}
         lastCard={index === productList.length - 1}
         {...item}
       />)
       }
-    </article>
+    </WhiteCard>
   )
 }
 

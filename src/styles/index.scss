@@ -9,3 +9,8 @@
   font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
 }
 
+.money{
+  &::before {
+    content: '$ ';
+  }
+}

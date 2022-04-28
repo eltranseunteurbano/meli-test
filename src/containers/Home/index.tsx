@@ -48,17 +48,12 @@ const Home = () => {
   ];
 
   return (
-    <section className="home">
-      <article className="home-content">
-        <Breadcrumb
-          categories={categories}
-          className="home-breadcrumb"
-        />
-        <ProductList
-          productList={items}
-          className="home-productList"
-        />
-      </article>
+    <section className="main-page home">
+      <Breadcrumb
+        categories={categories}
+        className="main-breadcrumb"
+      />
+      <ProductList productList={items} />
     </section>
   )
 }

@@ -1,4 +1,23 @@
 .main {
   background-color: $light-grey-color;
   min-block-size: calc(100vh - 64px);
+  padding: 2rem 0.75rem;
+  box-sizing: border-box;
+
+  &-content {
+    inline-size: 100%;
+    max-inline-size: $xl;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &-page {
+    inline-size: 100%;
+    grid-column: 2 / 12;
+  }
+
+  &-breadcrumb {
+    margin-block-end: 2rem;
+  }
 }

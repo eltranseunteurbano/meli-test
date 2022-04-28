@@ -6,6 +6,7 @@
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(10, 1fr);
+  text-decoration: none;
 
   &-last {
     border-block-end: none;
@@ -41,9 +42,6 @@
 
     &-value {
       font-size: 1.5rem;
-      &::before{
-        content: '$ ';
-      }
     }
 
     &-shipping {
