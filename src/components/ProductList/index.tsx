@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import ProductItem from '../../types/ProductItem';
+import { ProductItem } from '../../types/ProductItem';
 import ProductItemCard from '../ProductItemCard';
 import WhiteCard from '../WhiteCard';
 
@@ -14,16 +14,12 @@ const ProductList: React.FC<ProductListProps> = (props) => {
 
   return (
     <WhiteCard className={cn(className, 'ProductList')}>
-      {productList.map(({ city, description, freeShipping, id, img, value }, index) => (
+      {productList.map(({ item, author }, index) => (
         <ProductItemCard
-          key={id}
+          key={item.id}
           lastCard={index === productList.length - 1}
-          city={city}
-          description={description}
-          freeShipping={freeShipping}
-          id={id}
-          img={img}
-          value={value}
+          item={item}
+          author={author}
         />
       ))}
     </WhiteCard>

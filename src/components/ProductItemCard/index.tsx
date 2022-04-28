@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
-import ProductItem from '../../types/ProductItem';
-import thousanSeparator from '../../utils/thousandSeparator';
+import { ProductItem } from '../../types/ProductItem';
+import ThousanSeparator from '../../utils/thousandSeparator';
 
 interface ProductItemCardProps extends ProductItem {
   lastCard?: boolean;
@@ -10,7 +10,7 @@ interface ProductItemCardProps extends ProductItem {
 
 const ProductItemCard: React.FC<ProductItemCardProps> = (props) => {
   const {
-    lastCard, freeShipping, description, value, city, id,
+    lastCard, item: { id, free_shipping: freeShiping, description, price },
   } = props;
   return (
     <Link
@@ -29,8 +29,8 @@ const ProductItemCard: React.FC<ProductItemCardProps> = (props) => {
       />
       <div className="productItemCard-data">
         <div className="productItemCard-price">
-          <span className="productItemCard-price-value money">{thousanSeparator(value, '.')}</span>
-          {freeShipping && (
+          <span className="productItemCard-price-value money">{ThousanSeparator(price.amount, '.')}</span>
+          {freeShiping && (
             <img
               src="./assets/icons/ic_shipping.png"
               alt="Free shipping icon"
@@ -43,7 +43,7 @@ const ProductItemCard: React.FC<ProductItemCardProps> = (props) => {
 
         <p className="productItemCard-description">{description}</p>
       </div>
-      <p className="productItemCard-location">{city}</p>
+      <p className="productItemCard-location">city</p>
     </Link>
   );
 };
