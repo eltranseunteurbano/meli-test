@@ -28,9 +28,7 @@ const Product: React.FC = () => {
   const ButtonBuy = isLoading ? <div className="product-buy-skeleton skeleton-animation" /> : (
     <Button
       isFullwidth
-      onClick={
-      () => console.log(id)
-}
+      onClick={() => {}}
       className="product-buy"
     >
       Comprar
