@@ -15,6 +15,8 @@ const Product = () => {
     '32GB'
   ];
 
+  const ButtonBuy = <Button isFullwidth onClick={() => console.log('a')} className="product-buy">Comprar</Button>
+
   return (
     <section className="main-page product">
       <Breadcrumb
@@ -32,11 +34,12 @@ const Product = () => {
           <p className="product-info-soldUnits">Nuevo - 234 vendidos</p>
           <h1 className="product-info-title">Deco Reverse Sombrero Oxford</h1>
           <p className="product-info-value money">{thousanSeparator(1980)}<sup>00</sup></p>
-          <Button isFullwidth onClick={() => console.log('a')}>Comprar</Button>
+          {ButtonBuy}
         </article>
         <article className="product-description">
           <h2 className="product-description-title">Descripción del producto</h2>
           <p className="product-description-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt exercitationem nulla atque quasi nisi harum, ut reprehenderit commodi mollitia, rerum impedit aperiam porro debitis quae rem, adipisci omnis provident minima?</p>
+          {ButtonBuy}
         </article>
       </WhiteCard>
     </section>

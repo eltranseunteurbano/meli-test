@@ -1,8 +1,9 @@
 .main {
   background-color: $light-grey-color;
   min-block-size: calc(100vh - 64px);
-  padding: 2rem 0.75rem;
+  padding: 1rem 1.5rem;
   box-sizing: border-box;
+  transition: all .4s;
 
   &-content {
     inline-size: 100%;
@@ -14,10 +15,34 @@
 
   &-page {
     inline-size: 100%;
-    grid-column: 2 / 12;
+    grid-column: 1 / 13;
   }
 
   &-breadcrumb {
-    margin-block-end: 2rem;
+    margin-block-end: 1rem;
+  }
+}
+
+@media (min-width: $sm) {
+  .main {
+    padding: 1rem 2rem;
+
+    &-page {
+      grid-column: 2 / 12;
+    }
+  }
+}
+
+@media (min-width: $md) {
+  .main {
+    padding: 2rem 0.75rem;
+
+    &-page {
+      grid-column: 2 / 12;
+    }
+
+    &-breadcrumb {
+      margin-block-end: 2rem;
+    }
   }
 }

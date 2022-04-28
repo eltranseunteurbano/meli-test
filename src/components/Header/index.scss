@@ -1,8 +1,9 @@
 .header {
   background-color: $yellow-color;
   inline-size: 100%;
-  padding: 0.75rem;
+  padding: 1rem;
   box-sizing: border-box;
+  transition: all .4s;
 
   &-content {
     inline-size: 100%;
@@ -14,17 +15,47 @@
   }
 
   &-logo {
-    grid-column: 2 / 3;
+    grid-column: 1 / 2;
     & > a {
       display: flex;
       & > img {
         margin: auto;
+        margin-inline-end: 0;
         block-size: 2.5rem;
       }
     }
   }
 
   &-search {
-    grid-column: 3 / 12;
+    grid-column: 2 / 13;
+  }
+}
+
+@media (min-width: $sm) {
+  .header {
+    &-logo {
+      grid-column: 2 / 3;
+    }
+    &-search {
+      grid-column: 3 / 12;
+    }
+  }
+}
+
+@media (min-width: $md) {
+  .header {
+    padding: 0.75rem;
+
+    &-content {
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    &-logo {
+      grid-column: 2 / 3;
+    }
+
+    &-search {
+      grid-column: 3 / 12;
+    }
   }
 }
