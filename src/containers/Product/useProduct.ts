@@ -2,8 +2,11 @@ import { useQuery } from 'react-query';
 import { getProductDescriptionQuery, getProductQuery } from '../../queries/product';
 import { ProductItemQuery } from '../../types/ProductItem';
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const useProduct = () => {
+interface UseProductReturn {
+  getProduct: (productId: string) => ProductItemQuery;
+}
+
+const useProduct = (): UseProductReturn => {
   const reactQuery = useQuery;
 
   const getProduct = (productId: string): ProductItemQuery => {

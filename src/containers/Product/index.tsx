@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import { useParams } from 'react-router-dom';
 import useProduct from './useProduct';
 import Breadcrumb from '../../components/Breadcrumb';
@@ -6,6 +7,7 @@ import Button from '../../components/Button';
 import WhiteCard from '../../components/WhiteCard';
 import ThousandSeparator from '../../utils/thousandSeparator';
 import Pluralize from '../../utils/pluralize';
+import ErrorState from './ErrorState';
 
 const Product: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -21,7 +23,19 @@ const Product: React.FC = () => {
     '32GB',
   ];
 
-  const ButtonBuy = <Button isFullwidth onClick={() => console.log(id)} className="product-buy">Comprar</Button>;
+  if (isError) return <ErrorState />;
+
+  const ButtonBuy = isLoading ? <div className="product-buy-skeleton skeleton-animation" /> : (
+    <Button
+      isFullwidth
+      onClick={
+      () => console.log(id)
+}
+      className="product-buy"
+    >
+      Comprar
+    </Button>
+  );
 
   return (
     <section className="main-page product">
@@ -31,7 +45,13 @@ const Product: React.FC = () => {
       />
 
       <WhiteCard className="product-content">
-        <div className="product-image">
+        <div className={
+          cn(
+            'product-image',
+            isLoading && 'product-image-skeleton skeleton-animation',
+          )
+}
+        >
           <img
             src={item.picture.url}
             alt={item.title}
@@ -40,24 +60,44 @@ const Product: React.FC = () => {
           />
         </div>
         <article className="product-info">
-          <p className="product-info-soldUnits">
+          <p className={
+            cn('product-info-soldUnits', isLoading && 'product-info-soldUnits-skeleton skeleton-animation')
+}
+          >
             <span className="product-info-condition">
               {item.condition}
             </span>
-            {' '}- {item.sold_quantity} vendido{Pluralize(item.sold_quantity)}
-          </p> { /* Pluralize */}
-          <h1 className="product-info-title">{item.title}</h1>
-          <p className="product-info-value money">
+            {item.sold_quantity > 0 && `- ${item.sold_quantity} vendido${Pluralize(item.sold_quantity)}`}
+          </p>
+          <h1 className={
+            cn('product-info-title', isLoading && 'product-info-title-skeleton skeleton-animation')
+}
+          >
+            {item.title}
+          </h1>
+          <p className={cn('product-info-value money', isLoading && 'product-info-value-skeleton skeleton-animation')}>
             {ThousandSeparator(item.price.amount)}
             <sup>{item.price.decimals}</sup>
           </p>
           {ButtonBuy}
         </article>
         <article className="product-description">
-          <h2 className="product-description-title">
+          <h2 className={
+            cn(
+              'product-description-title',
+              isLoading && 'product-description-title-skeleton skeleton-animation',
+            )
+}
+          >
             Descripción del producto
           </h2>
-          <p className="product-description-text">
+          <p className={
+            cn(
+              'product-description-text',
+              isLoading && 'product-description-text-skeleton skeleton-animation',
+            )
+}
+          >
             {item.description}
           </p>
           {ButtonBuy}
