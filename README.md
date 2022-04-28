@@ -1,5 +1,7 @@
 # Prueba técnica de Frontend en MELI
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/64365597-33a7-4206-8651-fbdb92f16c98/deploy-status)](https://app.netlify.com/sites/jaimeburbano-melitest/deploys)
+
 ## Demo
 
 [Pueden ver el resultado en producción aquí.](https://jaimeburbano-melitest.netlify.app/)
@@ -47,5 +49,3 @@ To run tests, run the following command
 - Vitest
 - Cypress
 - Testing Library
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/64365597-33a7-4206-8651-fbdb92f16c98/deploy-status)](https://app.netlify.com/sites/jaimeburbano-melitest/deploys)
