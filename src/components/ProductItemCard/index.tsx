@@ -19,7 +19,7 @@ const ProductItemCard: React.FC<ProductItemCardProps> = (props) => {
     >
       <img
         src="https://http2.mlstatic.com/D_NQ_NP_607789-MLA46552310113_062021-O.webp"
-        alt="producto"
+        alt="producto" width={180} height={180}
         className='productItemCard-image'
       />
       <div className='productItemCard-data'>
@@ -29,6 +29,7 @@ const ProductItemCard: React.FC<ProductItemCardProps> = (props) => {
             src='./assets/icons/ic_shipping.png'
             alt="Free shipping icon"
             className='productItemCard-price-shipping'
+            width={16} height={16}
           />}
         </div>
 

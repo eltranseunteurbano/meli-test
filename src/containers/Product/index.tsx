@@ -27,7 +27,7 @@ const Product = () => {
       <WhiteCard className="product-content">
         <img
           src="https://http2.mlstatic.com/D_NQ_NP_607789-MLA46552310113_062021-O.webp"
-          alt="producto"
+          alt="producto" width={680} height={680}
           className='product-image'
         />
         <article className="product-info">

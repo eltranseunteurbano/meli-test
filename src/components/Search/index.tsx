@@ -11,7 +11,7 @@ const Search: React.FC<SearchProps> = (props) => {
     <div className={cn(className, 'search')}>
       <input type="text" placeholder="Nunca dejes de buscar" className="search-input" />
       <button type="button" className="search-btn">
-        <img src="./assets/icons/ic_Search.svg" alt="Buscar" />
+        <img src="./assets/icons/ic_Search.svg" alt="Buscar" width={24} height={24} />
       </button>
     </div>
   )
