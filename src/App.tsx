@@ -3,7 +3,7 @@ import Layout from './components/Layout';
 import Home from './containers/Home';
 import Product from './containers/Product';
 
-const App = (): React.ReactNode => {
+const App = (): JSX.Element => {
   return (
     <div className="App">
       <Layout>
