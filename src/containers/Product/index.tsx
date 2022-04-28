@@ -1,12 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import useProduct from './useProduct';
 import Breadcrumb from '../../components/Breadcrumb';
 import Button from '../../components/Button';
 import WhiteCard from '../../components/WhiteCard';
-import thousanSeparator from '../../utils/thousandSeparator';
+import ThousandSeparator from '../../utils/thousandSeparator';
+import Pluralize from '../../utils/pluralize';
 
 const Product: React.FC = () => {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
+
+  const { getProduct } = useProduct();
+  const { data: { item }, isError, isLoading } = getProduct(`${id}`);
 
   const categories = [
     'Electrónica, Audio y Video',
@@ -26,25 +31,35 @@ const Product: React.FC = () => {
       />
 
       <WhiteCard className="product-content">
-        <img
-          src="https://http2.mlstatic.com/D_NQ_NP_607789-MLA46552310113_062021-O.webp"
-          alt="producto"
-          width={680}
-          height={680}
-          className="product-image"
-        />
+        <div className="product-image">
+          <img
+            src={item.picture.url}
+            alt={item.title}
+            width={item.picture.width}
+            height={item.picture.height}
+          />
+        </div>
         <article className="product-info">
-          <p className="product-info-soldUnits">Nuevo - 234 vendidos</p>
-          <h1 className="product-info-title">Deco Reverse Sombrero Oxford</h1>
+          <p className="product-info-soldUnits">
+            <span className="product-info-condition">
+              {item.condition}
+            </span>
+            {' '}- {item.sold_quantity} vendido{Pluralize(item.sold_quantity)}
+          </p> { /* Pluralize */}
+          <h1 className="product-info-title">{item.title}</h1>
           <p className="product-info-value money">
-            {thousanSeparator(1980)}
-            <sup>00</sup>
+            {ThousandSeparator(item.price.amount)}
+            <sup>{item.price.decimals}</sup>
           </p>
           {ButtonBuy}
         </article>
         <article className="product-description">
-          <h2 className="product-description-title">Descripción del producto</h2>
-          <p className="product-description-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt exercitationem nulla atque quasi nisi harum, ut reprehenderit commodi mollitia, rerum impedit aperiam porro debitis quae rem, adipisci omnis provident minima?</p>
+          <h2 className="product-description-title">
+            Descripción del producto
+          </h2>
+          <p className="product-description-text">
+            {item.description}
+          </p>
           {ButtonBuy}
         </article>
       </WhiteCard>

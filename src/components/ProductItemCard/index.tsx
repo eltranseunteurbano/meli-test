@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import ProductItem from '../../types/ProductItem';
-import thousanSeparator from '../../utils/thousandSeparator';
+import ThousanSeparator from '../../utils/thousandSeparator';
 
 interface ProductItemCardProps extends ProductItem {
   lastCard?: boolean;
@@ -29,7 +29,7 @@ const ProductItemCard: React.FC<ProductItemCardProps> = (props) => {
       />
       <div className="productItemCard-data">
         <div className="productItemCard-price">
-          <span className="productItemCard-price-value money">{thousanSeparator(value, '.')}</span>
+          <span className="productItemCard-price-value money">{ThousanSeparator(value, '.')}</span>
           {freeShipping && (
             <img
               src="./assets/icons/ic_shipping.png"

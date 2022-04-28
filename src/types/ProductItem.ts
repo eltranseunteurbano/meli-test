@@ -1,10 +1,33 @@
 type ProductItem = {
-  id: string;
-  value: number;
-  freeShipping: boolean;
-  description: string;
-  city: string;
-  img: string;
+  author: {
+    name: string;
+    lastname: string;
+  },
+  item: {
+    id: string;
+    title: string;
+    price: {
+      currency: string;
+      amount: number;
+      decimals: number;
+    },
+    picture: {
+      url: string;
+      width: number;
+      height: number;
+    },
+    condition: string;
+    free_shipping: boolean;
+    sold_quantity: number;
+    description: string;
+  }
 };
 
-export default ProductItem;
+type ProductItemQuery = {
+  data: ProductItem;
+  error: unknown;
+  isError: boolean;
+  isLoading: boolean;
+};
+
+export type { ProductItem, ProductItemQuery };
