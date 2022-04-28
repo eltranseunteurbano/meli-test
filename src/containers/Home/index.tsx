@@ -1,15 +1,15 @@
-import Breadcrumb from "../../components/Breadcrumb"
-import ProductItem from "../../types/ProductItem";
-import ProductList from "../../components/ProductList";
+import React from 'react';
+import Breadcrumb from '../../components/Breadcrumb';
+import ProductItem from '../../types/ProductItem';
+import ProductList from '../../components/ProductList';
 
-const Home = () => {
-
+const Home: React.FC = () => {
   const categories = [
     'Electrónica, Audio y Video',
     'iPod',
     'Reproductores',
     'iPod touch',
-    '32GB'
+    '32GB',
   ];
 
   const items: ProductItem[] = [
@@ -19,7 +19,7 @@ const Home = () => {
       freeShipping: true,
       description: 'Apple Ipod touch 5g 16gb Negro Igual A Nuevo Completo Unico!',
       city: 'Capital Federal',
-      img: ''
+      img: '',
     },
     {
       id: 'dsa',
@@ -27,7 +27,7 @@ const Home = () => {
       freeShipping: true,
       description: 'Apple Ipod touch 5g 16gb Negro Igual A Nuevo Completo Unico!',
       city: 'Capital Federal',
-      img: ''
+      img: '',
     },
     {
       id: 'sda',
@@ -35,7 +35,7 @@ const Home = () => {
       freeShipping: true,
       description: 'Apple Ipod touch 5g 16gb Negro Igual A Nuevo Completo Unico!',
       city: 'Capital Federal',
-      img: ''
+      img: '',
     },
     {
       id: 'sad',
@@ -43,8 +43,8 @@ const Home = () => {
       freeShipping: true,
       description: 'Apple Ipod touch 5g 16gb Negro Igual A Nuevo Completo Unico!',
       city: 'Capital Federal',
-      img: ''
-    }
+      img: '',
+    },
   ];
 
   return (
@@ -55,7 +55,7 @@ const Home = () => {
       />
       <ProductList productList={items} />
     </section>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

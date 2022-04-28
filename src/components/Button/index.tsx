@@ -1,3 +1,4 @@
+import React from 'react';
 import cn from 'classnames';
 
 interface ButtonProps {
@@ -9,21 +10,24 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
-  const { children, className, type = 'primary', isFullwidth, onClick } = props;
+  const {
+    children, className, type = 'primary', isFullwidth, onClick,
+  } = props;
 
   return (
     <button
       className={cn(
         className,
-        "button",
+        'button',
         `button-${type}`,
-        isFullwidth && 'button-fullwidth'
+        isFullwidth && 'button-fullwidth',
       )}
       type="button"
       onClick={onClick}
     >
       {children}
     </button>
-  )
-}
+  );
+};
+
 export default Button;

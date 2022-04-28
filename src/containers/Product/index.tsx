@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom";
-import Breadcrumb from "../../components/Breadcrumb";
-import Button from "../../components/Button";
-import WhiteCard from "../../components/WhiteCard";
-import thousanSeparator from "../../utils/thousandSeparator";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import Breadcrumb from '../../components/Breadcrumb';
+import Button from '../../components/Button';
+import WhiteCard from '../../components/WhiteCard';
+import thousanSeparator from '../../utils/thousandSeparator';
 
-const Product = () => {
+const Product: React.FC = () => {
   const { id } = useParams();
 
   const categories = [
@@ -12,10 +13,10 @@ const Product = () => {
     'iPod',
     'Reproductores',
     'iPod touch',
-    '32GB'
+    '32GB',
   ];
 
-  const ButtonBuy = <Button isFullwidth onClick={() => console.log('a')} className="product-buy">Comprar</Button>
+  const ButtonBuy = <Button isFullwidth onClick={() => console.log(id)} className="product-buy">Comprar</Button>;
 
   return (
     <section className="main-page product">
@@ -27,13 +28,18 @@ const Product = () => {
       <WhiteCard className="product-content">
         <img
           src="https://http2.mlstatic.com/D_NQ_NP_607789-MLA46552310113_062021-O.webp"
-          alt="producto" width={680} height={680}
-          className='product-image'
+          alt="producto"
+          width={680}
+          height={680}
+          className="product-image"
         />
         <article className="product-info">
           <p className="product-info-soldUnits">Nuevo - 234 vendidos</p>
           <h1 className="product-info-title">Deco Reverse Sombrero Oxford</h1>
-          <p className="product-info-value money">{thousanSeparator(1980)}<sup>00</sup></p>
+          <p className="product-info-value money">
+            {thousanSeparator(1980)}
+            <sup>00</sup>
+          </p>
           {ButtonBuy}
         </article>
         <article className="product-description">
@@ -43,7 +49,7 @@ const Product = () => {
         </article>
       </WhiteCard>
     </section>
-  )
-}
+  );
+};
 
 export default Product;

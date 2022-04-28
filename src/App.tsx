@@ -1,10 +1,9 @@
-import { Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
-import Home from "./containers/Home";
-import Product from "./containers/Product";
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './containers/Home';
+import Product from './containers/Product';
 
-function App() {
-
+const App = (): React.ReactNode => {
   return (
     <div className="App">
       <Layout>
@@ -14,7 +13,7 @@ function App() {
         </Routes>
       </Layout>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

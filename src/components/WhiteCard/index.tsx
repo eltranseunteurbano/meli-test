@@ -1,3 +1,4 @@
+import React from 'react';
 import cn from 'classnames';
 
 interface WhiteCardprops {
@@ -9,10 +10,10 @@ const WhiteCard: React.FC<WhiteCardprops> = (props) => {
   const { children, className } = props;
 
   return (
-    <div className={cn(className, "whiteCard")}>
+    <div className={cn(className, 'whiteCard')}>
       {children}
     </div>
-  )
-}
+  );
+};
 
-export default WhiteCard
+export default WhiteCard;

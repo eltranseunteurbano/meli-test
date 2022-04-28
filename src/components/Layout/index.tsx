@@ -1,4 +1,5 @@
-import Header from "../Header"
+import React from 'react';
+import Header from '../Header';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -15,7 +16,7 @@ const Layout: React.FC<LayoutProps> = (props) => {
         </section>
       </main>
     </>
-  )
-}
+  );
+};
 
 export default Layout;

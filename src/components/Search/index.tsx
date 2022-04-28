@@ -1,4 +1,5 @@
-import cn from "classnames";
+import React from 'react';
+import cn from 'classnames';
 
 interface SearchProps {
   className?: string;
@@ -14,7 +15,7 @@ const Search: React.FC<SearchProps> = (props) => {
         <img src="./assets/icons/ic_Search.svg" alt="Buscar" width={24} height={24} />
       </button>
     </div>
-  )
-}
+  );
+};
 
 export default Search;
