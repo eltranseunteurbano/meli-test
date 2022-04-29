@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query';
 import { getProductDescriptionQuery, getProductQuery } from '../queries/product';
 import { ProductItemQuery } from '../types/ProductItem';
+import getCleanProduct from '../utils/getCleanProduct';
 
 interface UseProductReturn {
   getProduct: (productId: string) => ProductItemQuery;
@@ -23,32 +24,16 @@ const useProduct = (): UseProductReturn => {
       isError: isDescriptionError,
       isLoading: isDescriptionLoading,
     } = reactQuery([ 'productDescriptionKey', productId ], () => getProductDescriptionQuery(productId));
+    const productData = getCleanProduct(data, false);
 
     return {
       error: productError || descriptionError,
       isError: isProductError || isDescriptionError,
       isLoading: isProductLoading || isDescriptionLoading,
       data: {
-        author: {
-          name: '',
-          lastname: '',
-        },
+        ...productData,
         item: {
-          id: data?.id || productId,
-          title: data?.title || '',
-          price: {
-            currency: data?.currency_id || '',
-            amount: data?.price || 0,
-            decimals: 0,
-          },
-          picture: {
-            width: data?.pictures[0]?.max_size.split('x')[0] || 0,
-            height: data?.pictures[0]?.max_size.split('x')[1] || 0,
-            url: data?.pictures[0]?.url || '',
-          },
-          condition: data?.condition || '',
-          free_shipping: data?.shipping?.free_shipping || false,
-          sold_quantity: data?.sold_quantity || 0,
+          ...productData.item,
           description: descriptionData?.plain_text || '',
         },
       },
