@@ -69,7 +69,8 @@ const ProductItemCard: React.FC<ProductItemCardProps> = (props) => {
         'productItemCard-location',
         isLoading && 'productItemCard-location-skeleton skeleton-animation',
       )}
-      >city
+      >
+        Buenos aires
       </p>
     </Link>
   );
