@@ -42,10 +42,10 @@ To run tests, run the following command
 
 ## Tecnologías
 
-- Vite
-- React
-- Typescript
-- Sass
-- Vitest
-- Cypress
-- Testing Library
+- [x] Vite
+- [x] React
+- [x] Typescript
+- [x] Sass
+- [x] Vitest
+- [ ] Cypress
+- [ ] Testing Library
