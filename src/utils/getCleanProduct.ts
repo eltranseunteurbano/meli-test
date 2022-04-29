@@ -3,7 +3,6 @@
 import { ProductItem } from '../types/ProductItem';
 
 const getCleanProduct = (product: any, showSmallImage = true): ProductItem => {
-  if (Object.entries(product).length === 0) return {} as ProductItem;
   return {
     author: {
       name: 'Jaime',

@@ -116,10 +116,7 @@ const mockProduct: ProductItem = {
 };
 
 test('getCleanProduct', () => {
-  expect(getCleanProduct({})).toEqual({});
-  expect(getCleanProduct({}, false)).toEqual({});
-
-  expect(Object.entries(getCleanProduct({})).length).toEqual(0);
+  expect(Object.entries(getCleanProduct({})).length).toEqual(2);
   expect(Object.entries(getCleanProduct({ foo: 'bar' })).length).toEqual(2);
 
   assert.deepEqual(getCleanProduct(mockQueryProduct, false), mockProduct);
