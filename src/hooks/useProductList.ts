@@ -27,7 +27,7 @@ const useProductList = (): UseProductListReturn => {
       error,
       isError,
       isLoading,
-      data: filteredData,
+      data: filteredData.slice(0, 4),
     };
   };
 

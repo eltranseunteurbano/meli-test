@@ -29,7 +29,7 @@ const Home: React.FC = () => {
               className="main-breadcrumb"
             />
             <ProductList
-              productList={data.slice(0, 4) || []}
+              productList={data || []}
               isLoading={isLoading}
             />
           </>

@@ -3,10 +3,11 @@
 import { ProductItem } from '../types/ProductItem';
 
 const getCleanProduct = (product: any, showSmallImage = true): ProductItem => {
+  if (Object.entries(product).length === 0) return {} as ProductItem;
   return {
     author: {
-      name: '',
-      lastname: '',
+      name: 'Jaime',
+      lastname: 'Burbano',
     },
     item: {
       id: product?.id || '',
@@ -18,11 +19,11 @@ const getCleanProduct = (product: any, showSmallImage = true): ProductItem => {
       },
       picture: {
         url: showSmallImage ? product?.thumbnail || '' : product?.pictures[0].url || '',
-        width: showSmallImage ? 180 : product?.pictures[0].size.split('x')[0] || 180,
-        height: showSmallImage ? 180 : product?.pictures[0].size.split('x')[1] || 180,
+        width: showSmallImage ? 180 : parseInt(product?.pictures[0].size.split('x')[0], 10) || 180,
+        height: showSmallImage ? 180 : parseInt(product?.pictures[0].size.split('x')[1], 10) || 180,
       },
       condition: product?.condition,
-      free_shipping: product?.shipping.free_shipping,
+      free_shipping: product?.shipping?.free_shipping,
       sold_quantity: product?.sold_quantity,
     },
   };
