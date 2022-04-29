@@ -14,18 +14,20 @@
 
   &-image {
     aspect-ratio: 1;
-
-    inline-size: 100%;
     max-inline-size: 11.25rem;
 
     border-radius: 0.25rem;
     margin: 0 auto;
 
     overflow: hidden;
-    object-fit: cover;
-    object-position: center;
-
     grid-column: 1 / 2;
+
+    img {
+      display: block;
+      object-fit: contain;
+      object-position: center;
+      inline-size: 100%;
+    }
   }
 
   &-data {

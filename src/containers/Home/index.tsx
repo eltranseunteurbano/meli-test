@@ -1,9 +1,15 @@
 import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 import Breadcrumb from '../../components/Breadcrumb';
-import { ProductItem } from '../../types/ProductItem';
 import ProductList from '../../components/ProductList';
+import useProductList from '../../hooks/useProductList';
 
 const Home: React.FC = () => {
+  const [ searchParams ] = useSearchParams();
+  const { getProductList } = useProductList();
+
+  const { data } = getProductList(searchParams.get('search') as string);
+
   const categories = [
     'Electrónica, Audio y Video',
     'iPod',
@@ -12,15 +18,13 @@ const Home: React.FC = () => {
     '32GB',
   ];
 
-  const items: ProductItem[] = [];
-
   return (
     <section className="main-page home">
       <Breadcrumb
         categories={categories}
         className="main-breadcrumb"
       />
-      <ProductList productList={items} />
+      <ProductList productList={data.slice(0, 4) || []} />
     </section>
   );
 };

@@ -10,8 +10,10 @@ interface ProductItemCardProps extends ProductItem {
 
 const ProductItemCard: React.FC<ProductItemCardProps> = (props) => {
   const {
-    lastCard, item: { id, free_shipping: freeShiping, description, price },
+    lastCard,
+    item: { id, free_shipping: freeShiping, price, picture, title },
   } = props;
+
   return (
     <Link
       to={`/items/${id}`}
@@ -20,16 +22,19 @@ const ProductItemCard: React.FC<ProductItemCardProps> = (props) => {
         lastCard && 'productItemCard-last',
       )}
     >
-      <img
-        src="https://http2.mlstatic.com/D_NQ_NP_607789-MLA46552310113_062021-O.webp"
-        alt="producto"
-        width={180}
-        height={180}
-        className="productItemCard-image"
-      />
+      <div className="productItemCard-image">
+        <img
+          src={picture.url}
+          alt={title}
+          width={picture.width}
+          height={picture.height}
+        />
+      </div>
       <div className="productItemCard-data">
         <div className="productItemCard-price">
-          <span className="productItemCard-price-value money">{ThousanSeparator(price.amount, '.')}</span>
+          <span className="productItemCard-price-value money">
+            {ThousanSeparator(price.amount, '.')}
+          </span>
           {freeShiping && (
             <img
               src="./assets/icons/ic_shipping.png"
@@ -41,7 +46,7 @@ const ProductItemCard: React.FC<ProductItemCardProps> = (props) => {
           )}
         </div>
 
-        <p className="productItemCard-description">{description}</p>
+        <p className="productItemCard-description">{title}</p>
       </div>
       <p className="productItemCard-location">city</p>
     </Link>
