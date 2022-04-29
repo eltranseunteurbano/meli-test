@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
-import { getProductDescriptionQuery, getProductQuery } from '../../queries/product';
-import { ProductItemQuery } from '../../types/ProductItem';
+import { getProductDescriptionQuery, getProductQuery } from '../queries/product';
+import { ProductItemQuery } from '../types/ProductItem';
 
 interface UseProductReturn {
   getProduct: (productId: string) => ProductItemQuery;

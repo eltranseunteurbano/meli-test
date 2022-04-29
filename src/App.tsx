@@ -13,6 +13,7 @@ const App = (): JSX.Element => {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/sites/MLA/search?q=:search" />
             <Route path="/items/:id" element={<Product />} />
           </Routes>
         </Layout>
@@ -22,5 +23,3 @@ const App = (): JSX.Element => {
 };
 
 export default App;
-
-// MLA1116769053

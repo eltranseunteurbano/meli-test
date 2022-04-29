@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import { useParams } from 'react-router-dom';
-import useProduct from './useProduct';
+import useProduct from '../../hooks/useProduct';
 import Breadcrumb from '../../components/Breadcrumb';
 import Button from '../../components/Button';
 import WhiteCard from '../../components/WhiteCard';
