@@ -28,6 +28,14 @@
       object-position: center;
       inline-size: 100%;
     }
+
+    &-skeleton {
+      inline-size: 180px;
+      block-size: 180px;
+      img {
+        display: none;
+      }
+    }
   }
 
   &-data {
@@ -50,11 +58,25 @@
     &-shipping {
       inline-size: 1.3rem;
     }
+
+    &-skeleton {
+      block-size: 1.5rem;
+      inline-size: 30%;
+      * {
+        display: none;
+      }
+    }
   }
 
   &-description {
     color: $black-color;
     font-size: 1.125rem;
+
+    &-skeleton {
+      block-size: 2rem;
+      inline-size: 100%;
+      color: transparent;
+    }
   }
 
   &-location {
@@ -64,6 +86,12 @@
     grid-row: 2 / 3;
     padding-block-start: 0;
     text-align: center;
+
+    &-skeleton {
+      block-size: 0.1rem;
+      inline-size: 100%;
+      color: transparent;
+    }
   }
 }
 

@@ -7,10 +7,11 @@ import WhiteCard from '../WhiteCard';
 interface ProductListProps {
   productList: ProductItem[];
   className?: string;
+  isLoading?: boolean;
 }
 
 const ProductList: React.FC<ProductListProps> = (props) => {
-  const { productList, className } = props;
+  const { productList, className, isLoading } = props;
 
   return (
     <WhiteCard className={cn(className, 'ProductList')}>
@@ -20,6 +21,7 @@ const ProductList: React.FC<ProductListProps> = (props) => {
           lastCard={index === productList.length - 1}
           item={item}
           author={author}
+          isLoading={isLoading}
         />
       ))}
     </WhiteCard>
