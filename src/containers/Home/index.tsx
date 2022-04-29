@@ -9,7 +9,7 @@ const Home: React.FC = () => {
   const [ searchParams ] = useSearchParams();
   const { getProductList } = useProductList();
 
-  const { data } = getProductList(searchParams.get('search') as string);
+  const { data, isLoading } = getProductList(searchParams.get('search') as string);
 
   const categories = [
     'Electrónica, Audio y Video',
@@ -23,10 +23,15 @@ const Home: React.FC = () => {
     <section className="main-page home">
       {!!searchParams.get('search')
         ? (
-          <><Breadcrumb
-            categories={categories}
-            className="main-breadcrumb"
-          /><ProductList productList={data.slice(0, 4) || []} />
+          <>
+            <Breadcrumb
+              categories={categories}
+              className="main-breadcrumb"
+            />
+            <ProductList
+              productList={data.slice(0, 4) || []}
+              isLoading={isLoading}
+            />
           </>
         ) : <EmptyState />
       }
