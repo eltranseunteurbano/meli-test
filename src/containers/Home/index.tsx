@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import Breadcrumb from '../../components/Breadcrumb';
 import ProductList from '../../components/ProductList';
 import useProductList from '../../hooks/useProductList';
+import EmptyState from './EmptyState';
 
 const Home: React.FC = () => {
   const [ searchParams ] = useSearchParams();
@@ -20,11 +21,15 @@ const Home: React.FC = () => {
 
   return (
     <section className="main-page home">
-      <Breadcrumb
-        categories={categories}
-        className="main-breadcrumb"
-      />
-      <ProductList productList={data.slice(0, 4) || []} />
+      {!!searchParams.get('search')
+        ? (
+          <><Breadcrumb
+            categories={categories}
+            className="main-breadcrumb"
+          /><ProductList productList={data.slice(0, 4) || []} />
+          </>
+        ) : <EmptyState />
+      }
     </section>
   );
 };

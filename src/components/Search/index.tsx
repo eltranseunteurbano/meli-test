@@ -15,7 +15,6 @@ const Search: React.FC<SearchProps> = (props) => {
     const formData = new FormData(event.currentTarget);
     const searchData = formData.get('search') as string;
     if (!searchData) return;
-    console.log(searchData);
     setSearchParams({ search: searchData });
   };
 
